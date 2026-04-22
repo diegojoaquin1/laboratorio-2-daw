@@ -1,12 +1,33 @@
+
 const mensaje = document.createElement("h1");
 mensaje.innerText = "Ejercicio-1-Desarrollo de aplicaciones web-Lab";
 document.body.appendChild(mensaje);
+
+
+
+// SELECCION
+
+
+const labelSeleccion = document.createElement("label");
+labelSeleccion.innerText = "Seleccione: ";
+document.body.appendChild(labelSeleccion);
+
+const selectTarjeta = document.createElement("select");
+const opcion1 = document.createElement("option");
+opcion1.innerText = "Multired Global Débito";
+
+selectTarjeta.appendChild(opcion1);
+document.body.appendChild(selectTarjeta);
+
+document.body.appendChild(document.createElement("br"));
+// TECLADO 
+
 
 const inputClave = document.createElement("input");
 inputClave.type = "password";
 inputClave.id = "password-input";
 document.body.appendChild(inputClave);
-
+    
 const contenedorTeclado = document.createElement("div");
 document.body.appendChild(contenedorTeclado);
 
