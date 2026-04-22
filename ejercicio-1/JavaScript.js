@@ -15,11 +15,17 @@ document.body.appendChild(labelSeleccion);
 const selectTarjeta = document.createElement("select");
 const opcion1 = document.createElement("option");
 opcion1.innerText = "Multired Global Débito";
-
 selectTarjeta.appendChild(opcion1);
 document.body.appendChild(selectTarjeta);
 
 document.body.appendChild(document.createElement("br"));
+
+
+const label = document.createElement("label");
+label.innerText = "Número de tarjeta";
+document.body.appendChild(label);
+
+
 // TECLADO 
 
 
