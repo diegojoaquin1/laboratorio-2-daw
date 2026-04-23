@@ -1,51 +1,57 @@
-// CONTENEDOR PRINCIPAL 
+// Creacion de DOM, CONTENEDOR PRINCIPAL 
 const contenedor = document.createElement("div");
 document.body.appendChild(contenedor);
 
-// TITULO
+// Para el titulo
 const titulo = document.createElement("h1");
-titulo.innerText = "/ El Ahorcado - from Arequipa /";
+titulo.innerText = "/ El Ahorcado - Arequipa /";
 contenedor.appendChild(titulo);
 
-// BOTÓN INICIAR
+// Para el boton que iniciara el juego
 const btnIniciar = document.createElement("button");
 btnIniciar.innerText = "¡Que empiece el juego!";
 contenedor.appendChild(btnIniciar);
 
-// CANVAS
+// Para el Canvas o zona de dibujo
 const canvas = document.createElement("canvas");
 canvas.width = 440;
 canvas.height = 450;
 canvas.style.border = "5px solid black";
 contenedor.appendChild(canvas);
 
+// para el lapiz, algo muy importante
 const ctx = canvas.getContext("2d");
 
-// PALABRA
+// Para mostrar las letras: _ A _ B _
 const palabraHTML = document.createElement("h3");
 contenedor.appendChild(palabraHTML);
 
-// ERRORES 
+// Para los errores  
 const erroresHTML = document.createElement("p");
 contenedor.appendChild(erroresHTML);
 
-// MENSAJE
+// Mostrar el mensaje de haber ganado o no
 const mensaje = document.createElement("h2");
 contenedor.appendChild(mensaje);
 
-// CONTENEDOR LETRAS
+// Contenedor de letras desde la A a la Z
 const contenedorLetras = document.createElement("div");
 contenedor.appendChild(contenedorLetras);
 
 // VARIABLES 
 const palabras = ["AREQUIPA" , "CHACHANI" , "PAUCARPATA" , "SOCABAYA" , "MISTI" , "MIRAFLORES", "MELGAR"]
 
+//Se guardara la palabra eligida
 let palabraSecreta = "";
 let palabraMostrada = [];
+
+//Contador de errores
 let errores = 0;
+
+// Limites antes de perder
 const maxErrores = 10;
 
-// ====== INICIAR JUEGO ======
+// Para iniciar el juego
 btnIniciar.onclick = function () {
     palabraSecreta = palabras[Math.floor(Math.random() * palabras.length)];
     palabraMostrada = Array(palabraSecreta.length).fill("_");
@@ -57,13 +63,13 @@ btnIniciar.onclick = function () {
     crearLetras();
 };
 
-// ====== ACTUALIZAR ======
+// Para actualizar la pantalla
 function actualizarPantalla() {
     palabraHTML.innerText = palabraMostrada.join(" ");
     erroresHTML.innerText = "Errores: " + errores + " / " + maxErrores;
 }
 
-// ====== CREAR BOTONES ======
+// Para crear botones
 function crearLetras() {
     contenedorLetras.innerHTML = "";
 
@@ -79,14 +85,21 @@ function crearLetras() {
 
         contenedorLetras.appendChild(btn);
     }
+
+    btn.style.margin = "3px";
+    btn.style.padding = "10px";
+    btn.style.border = "none";
+    btn.style.borderRadius = "5px";
+    btn.style.background = "#e0e0e0";
 }
 
-// ====== MANEJAR LETRA ======
+// Para manejar la letra
 function manejarLetra(letra, boton) {
     boton.disabled = true;
 
     if (palabraSecreta.includes(letra)) {
         boton.style.background = "green";
+        boton.style.color = "white";
 
         for (let i = 0; i < palabraSecreta.length; i++) {
             if (palabraSecreta[i] === letra) {
@@ -96,6 +109,7 @@ function manejarLetra(letra, boton) {
 
     } else {
         boton.style.background = "red";
+        boton.style.color = "white";
         errores++;
         dibujar();
     }
@@ -104,7 +118,7 @@ function manejarLetra(letra, boton) {
     verificar();
 }
 
-// ====== VERIFICAR ======
+// Verificacion 
 function verificar() {
     if (!palabraMostrada.includes("_")) {
         mensaje.innerText = "¡Ganaste!";
@@ -112,23 +126,23 @@ function verificar() {
     }
 
     if (errores === maxErrores) {
-        mensaje.innerText = "Perdiste. Era: " + palabraSecreta;
+        mensaje.innerText = "Perdiste. La palabra era: " + palabraSecreta;
         desactivar();
     }
 }
 
-// ====== DESACTIVAR BOTONES ======
+// Desactivar los botones
 function desactivar() {
     const botones = contenedorLetras.querySelectorAll("button");
     botones.forEach(b => b.disabled = true);
 }
 
-// ====== LIMPIAR CANVAS ======
+// Para limpiar el canvas 
 function limpiarCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-// ====== DIBUJAR ======
+// Para el dibujo de las lineas
 function dibujar() {
     switch (errores) {
         case 1:
