@@ -12,11 +12,23 @@ const btnIniciar = document.createElement("button");
 btnIniciar.innerText = "¡Que empiece el juego!";
 contenedor.appendChild(btnIniciar);
 
+btnIniciar.style.padding = "15px 30px";
+btnIniciar.style.fontSize = "10px";
+btnIniciar.style.backgroundColor = "blue"; // Granate Arequipa
+btnIniciar.style.color = "white";
+btnIniciar.style.border = "none";
+btnIniciar.style.borderRadius = "8px";
+btnIniciar.style.cursor = "pointer";
+btnIniciar.style.fontFamily = "Arial, sans-serif";
+btnIniciar.style.fontWeight = "bold";
+btnIniciar.style.transition = "0.3s";
+btnIniciar.style.marginTop = "20px";
+
 // Para el Canvas o zona de dibujo
 const canvas = document.createElement("canvas");
 canvas.width = 440;
 canvas.height = 450;
-canvas.style.border = "5px solid black";
+canvas.style.border = "15px solid gray";
 contenedor.appendChild(canvas);
 
 // para el lapiz, algo muy importante
@@ -90,7 +102,7 @@ function crearLetras() {
     btn.style.padding = "10px";
     btn.style.border = "none";
     btn.style.borderRadius = "5px";
-    btn.style.background = "#e0e0e0";
+    btn.style.background = "#706d6d";
 }
 
 // Para manejar la letra
@@ -126,7 +138,7 @@ function verificar() {
     }
 
     if (errores === maxErrores) {
-        mensaje.innerText = "Perdiste. La palabra era: " + palabraSecreta;
+        mensaje.innerText = "Perdiste. La palabra correcta era: " + palabraSecreta;
         desactivar();
     }
 }
