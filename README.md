@@ -15,9 +15,10 @@
 Este repositorio contiene la resolución de los ejercicios avanzados de JavaScript nativo, enfocados en la manipulación dinámica del DOM y la gestión de eventos sin contenido HTML predefinido. Para el despliegue, se ha utilizado una arquitectura de contenedores basada en Docker con un servidor web Apache configurado mediante VirtualHosts.
 
 ### Ejercicios Incluidos:
-1. **Ejercicio 1:** Generación dinámica de tablas y manipulación de estilos mediante JS.
-2. **Ejercicio 2 (Avanzado):** Implementación de un teclado numérico aleatorio y sistema de validación de Captcha para entornos bancarios.
-3. **Ejercicio 3:** Resolución de lógica avanzada y formularios dinámicos.
+1. **Ejercicio 1:** Implementación de un teclado numérico aleatorio y sistema de validación de Captcha para entornos bancarios.
+2. **Ejercicio 2:** Cree una calculadora básica, como la de los sistemas operativos, que utilice la función eval().
+3. **Ejercicio 3:** Cree una versión del juego 'el ahorcado' que grafique con canvas, paso a paso, desde el evento onclick()
+en los botones.
 
 ---
 
