@@ -1,6 +1,6 @@
 // --- ENCABEZADO ---
 const titulo = document.createElement("h1");
-titulo.innerText = "Ejercicio-2-Desarrollo de aplicaciones web-Lab";
+titulo.innerText = "Ejercicio-1-Desarrollo de aplicaciones web-Lab";
 document.body.appendChild(titulo);
 
 // --- SELECCIÓN DE TARJETA ---
